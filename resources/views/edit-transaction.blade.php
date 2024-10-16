@@ -16,7 +16,7 @@
     <input type ="text" id="description" name="description" value="{{$transaction->description}}" required>
     <br>
     <label for = "status">Status: </label>
-    <select id ="status" value="{{$transaction->status}}">
+    <select type ="select" id ="status" value="{{$transaction->status}}">
         <option value="successful">Successful</option>
         <option value="declined">Declined</option>
     </select>

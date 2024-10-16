@@ -16,7 +16,7 @@
     <input type ="text" id="description" name="description" required>
     <br>
     <label for = "status">Status: </label>
-    <select id ="status">
+    <select type ="select" id ="status" name="status">
         <option value="successful">Successful</option>
         <option value="declined">Declined</option>
     </select>

@@ -11,14 +11,17 @@ class TransactionController extends Controller
         $transactions = Transaction::orderBy('updated_at', 'desc')->get();
         return view('transactions', ['transactions'=>$transactions]);
     }
-
+    public function createTransaction()
+    {
+        return view('create-transaction');
+    }
     public function storeTransaction(Request $request)
     {
         $validated =$request->validate([
             'transaction_title'=>'required|string|max:50',
             'description'=>'required|string|max:255',
             'status'=>'required|string|max:10',
-            'total_amount'=>'required|string|max:255',
+            'total_amount'=>'required|integer',
             'transaction_number'=>'required|string|max:255',
         ]);
 
@@ -33,15 +36,12 @@ class TransactionController extends Controller
         return redirect()->route('showAllTransactions')->with('success', 'Transaction is made successfully.');
 
     }
-    public function createTransaction()
-    {
-        return view('create-transaction');
-    }
  
     public function viewTransaction(Request $request)
     {
-        $transaction = Transaction::find($request->$id);
+        $transaction = Transaction::find($request->id);
         return view('transaction',['transaction'=>$transaction]);
+    
     }
     public function editTransaction(Request $request)
     {
