@@ -9,22 +9,22 @@
     <form action="{{ route('updateTransaction', ['id' =>$transaction->id])}}" method="POST">
         @method('POST')
         @csrf
-        <label form = "transaction_title">Title: </label>
+        <label for= "transaction_title">Title: </label>
     <input type ="text" id="transaction_title" name="transaction_title" value="{{$transaction->transaction_title}}" required>
     <br>
-    <label form = "description">Description: </label>
+    <label for = "description">Description: </label>
     <input type ="text" id="description" name="description" value="{{$transaction->description}}" required>
     <br>
-    <label form = "status">Status: </label>
+    <label for = "status">Status: </label>
     <select id ="status" value="{{$transaction->status}}">
         <option value="successful">Successful</option>
         <option value="declined">Declined</option>
     </select>
     <br>
-    <label form = "total_amount">Total Amount: </label>
+    <label for = "total_amount">Total Amount: </label>
     <input type ="numeric" id="total_amount" name="total_amount" value="{{$transaction->total_amount}}" required>
     <br>
-    <label form = "transaction_number">Transaction Number: </label>
+    <label for = "transaction_number">Transaction Number: </label>
     <input type ="numeric" id="transaction_number" name="transaction_number" value="{{$transaction->transaction_number}}"required>
     <br>
     <button type="submit">UPDATE</button>

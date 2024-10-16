@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('transactions', function (Blueprint $table) {
             $table->id();
-            $table->string('transaction_title')->nullable();
+            $table->string('transaction_title');
             $table->string('description');
             $table->enum('status',['successful', 'declined']);
             $table->string('total_amount');

@@ -9,22 +9,22 @@
     <form action="{{route('storeTransaction')}} " method="GET">
         @method('POST')
     @csrf
-    <label form = "transaction_title">Title: </label>
-    <input type ="text" id="title" name="title" required>
+    <label for = "transaction_title">Title: </label>
+    <input type ="text" id="transaction_title" name="transaction_title" required>
     <br>
-    <label form = "description">Description: </label>
+    <label for = "description">Description: </label>
     <input type ="text" id="description" name="description" required>
     <br>
-    <label form = "status">Status: </label>
+    <label for = "status">Status: </label>
     <select id ="status">
         <option value="successful">Successful</option>
         <option value="declined">Declined</option>
     </select>
     <br>
-    <label form = "total_amount">Total Amount: </label>
+    <label for = "total_amount">Total Amount: </label>
     <input type ="text" id="total_amount" name="total_amount" required>
     <br>
-    <label form = "transaction_number">Transaction Number: </label>
+    <label for = "transaction_number">Transaction Number: </label>
     <input type ="text" id="transaction_number" name="transaction_number" required>
     <br>
     <button type="submit">CREATE</button>

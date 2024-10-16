@@ -15,7 +15,7 @@ class TransactionController extends Controller
     public function storeTransaction(Request $request)
     {
         $validated =$request->validate([
-            'transaction_title'=>'nullable|required|string|max:50',
+            'transaction_title'=>'required|string|max:50',
             'description'=>'required|string|max:255',
             'status'=>'required|string|max:10',
             'total_amount'=>'required|string|max:255',
@@ -37,10 +37,10 @@ class TransactionController extends Controller
     {
         return view('create-transaction');
     }
-
-    public function viewTransaction($id)
+ 
+    public function viewTransaction(Request $request)
     {
-        $transaction = Transaction::find($id);
+        $transaction = Transaction::find($request->$id);
         return view('transaction',['transaction'=>$transaction]);
     }
     public function editTransaction(Request $request)
@@ -52,7 +52,7 @@ class TransactionController extends Controller
     public function updateTransaction(Request $request)
     {
              $validated =$request->validate([
-            'transaction_title'=>'nullable|required|string|max:50',
+            'transaction_title'=>'required|string|max:50',
             'description'=>'required|string|max:255',
             'status'=>'required|string|max:10',
             'total_amount'=>'required|float|max:255',
